@@ -45,9 +45,9 @@ async function cam_init() {
         model = await tmImage.load(url_model, url_metadata);
         num_classes = model.getTotalClasses();
 
-        // 設置前置相機
-        const flip = false; // 不翻轉畫面，使用前置相機
-        webcam = new tmImage.Webcam(240, 240, flip, { facingMode: "user" });
+        // 設置後置相機
+        const flip = false; // 不翻轉畫面，使用後置相機
+        webcam = new tmImage.Webcam(240, 240, flip, { facingMode: "environment" });
         await webcam.setup(); // 請求相機權限
         await webcam.play();
         window.requestAnimationFrame(loop);
